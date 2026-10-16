@@ -43,3 +43,9 @@ replay_*.log
 
 *.jar
 !gradle/wrapper/gradle-wrapper.jar
+
+# artes locais (nao fazem parte do repositorio)
+
+/icon-512.png
+/icon-128.png
+/make_icon.ps1
