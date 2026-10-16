@@ -3,7 +3,8 @@
 	"package": "com.realcameracompat.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-		"MixinMultiVertexCatcher"
+		"MixinMultiVertexCatcher",
+		"MixinModelAnalyser"
 	],
 	"injectors": {
 		"defaultRequire": 1

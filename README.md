@@ -18,6 +18,11 @@ This mod injects the EMF/ETF render state during Real Camera's vertex capture. T
 - Entity Model Features (EMF) 3.3.12+
 - Entity Texture Features (ETF) 7.2.6+
 
+### Optional
+
+- First Person Model 2.7.3+ — full compatibility (see below)
+- 3D Skin Layers 1.11.3+ — partial compatibility (see below)
+
 ## Installation
 
 1. Install Fabric Loader for Minecraft 26.2
@@ -30,6 +35,14 @@ This mod injects the EMF/ETF render state during Real Camera's vertex capture. T
 - Client-side only
 - Works with both OpenGL and Vulkan backends
 - Tested with FA Player Extension 1.1.0
+
+### First Person Model — full compatibility
+
+While the Real Camera camera is active, the player body stays hidden, exactly like in vanilla First Person Model.
+
+### 3D Skin Layers — partial compatibility
+
+The 3D skin layers are visible in Real Camera's model view, and a best-effort filter ignores them when binding the camera. The filter may not catch every case (for example, layers whose texture coordinates collide with the vanilla body), so binding can behave inconsistently with 3D Skin Layers installed. This is a technical limitation of how 3D Skin Layers are meshed, and the current behavior is considered acceptable.
 
 ## License
 

@@ -41,6 +41,7 @@ dependencies {
 	implementation "maven.modrinth:real-camera:${project.realcamera_version}"
 	implementation "maven.modrinth:entity-model-features:${project.emf_version}"
 	implementation "maven.modrinth:entitytexturefeatures:${project.etf_version}"
+	implementation "maven.modrinth:first-person-model:${project.firstperson_version}"
 }
 
 processResources {

@@ -2,6 +2,7 @@ package com.realcameracompat.client.mixin;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.realcameracompat.client.RealCameraCompatClient;
+import com.realcameracompat.client.compat.SkinLayersUvFilter;
 import com.xtracr.realcamera.renderer.MultiVertexCatcher;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
@@ -9,6 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import traben.entity_texture_features.features.state.ETFEntityRenderState;
 import traben.entity_texture_features.features.state.ETFState;
 import traben.entity_texture_features.features.state.ETFSubmitData;
@@ -55,6 +57,24 @@ public class MixinMultiVertexCatcher {
 			ETFState.unMount();
 		} catch (Throwable t) {
 			RealCameraCompatClient.LOGGER.warn("Real Camera Compat: falha ao desativar o estado EMF/ETF apos a captura de modelo", t);
+		}
+	}
+
+	@Inject(method = "initCollector", at = @At("HEAD"))
+	private void rcc$beforeInitCollector(CallbackInfoReturnable<Object> cir) {
+		try {
+			SkinLayersUvFilter.beginCapture();
+		} catch (Throwable t) {
+			RealCameraCompatClient.LOGGER.warn("Real Camera Compat: falha ao preparar a captura para o 3D Skin Layers", t);
+		}
+	}
+
+	@Inject(method = "renderModelSubmit", at = @At("RETURN"))
+	private static void rcc$collectSkinLayersUvs(ModelFeatureRenderer.Submit<?> submit, VertexConsumer buffer, CallbackInfo ci) {
+		try {
+			SkinLayersUvFilter.collectFromModel(submit.model());
+		} catch (Throwable t) {
+			RealCameraCompatClient.LOGGER.warn("Real Camera Compat: falha ao coletar UVs do 3D Skin Layers", t);
 		}
 	}
 }
