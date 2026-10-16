@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.realcameracompat.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"MixinMultiVertexCatcher"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

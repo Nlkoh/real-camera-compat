@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "realcameracompat",
+	"version": "${version}",
+	"name": "Real Camera Compat",
+	"description": "Compatibility patch between Real Camera, Entity Model Features (EMF) and Entity Texture Features (ETF).",
+	"authors": [
+		"Elder"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/realcameracompat/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.realcameracompat.client.RealCameraCompatClient"
+		]
+	},
+	"mixins": [
+		{
+			"config": "realcameracompat.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*",
+		"realcamera": "*",
+		"entity_model_features": "*",
+		"entity_texture_features": ">=7.2"
+	}
+}
