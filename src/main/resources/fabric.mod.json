@@ -5,7 +5,7 @@
 	"name": "Real Camera Compat",
 	"description": "Compatibility patch between Real Camera, Entity Model Features (EMF) and Entity Texture Features (ETF).",
 	"authors": [
-		"Elder"
+		"ElTonyHawk"
 	],
 	"license": "CC0-1.0",
 	"icon": "assets/realcameracompat/icon.png",
