@@ -1,6 +1,5 @@
 package com.realcameracompat.client;
 
-import com.realcameracompat.client.compat.FirstPersonModelBridge;
 import com.realcameracompat.client.compat.SkinLayersUvFilter;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -20,9 +19,6 @@ public class RealCameraCompatClient implements ClientModInitializer {
 		boolean firstPersonModel = loader.isModLoaded("firstperson");
 		boolean skinLayers3d = loader.isModLoaded("skinlayers3d");
 
-		if (firstPersonModel) {
-			FirstPersonModelBridge.register();
-		}
 		SkinLayersUvFilter.init();
 
 		LOGGER.info("Real Camera Compat iniciado (Real Camera: {}, EMF: {}, ETF: {}, FPM: {}, 3DSL: {})", realCamera, emf, etf, firstPersonModel, skinLayers3d);

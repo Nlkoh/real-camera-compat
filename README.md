@@ -38,7 +38,7 @@ This mod injects the EMF/ETF render state during Real Camera's vertex capture. T
 
 ### First Person Model — full compatibility
 
-While the Real Camera camera is active, the player body stays hidden, exactly like in vanilla First Person Model.
+No interference: the first-person body and the automatic head hiding are handled natively by First Person Model. This mod does not register any activation handler.
 
 ### 3D Skin Layers — partial compatibility
 
